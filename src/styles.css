@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #FFFFFF;
+    color: #222222;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav {
+    padding: 22px 30px;
+    box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
+}
+
+.hero {
+    max-width: 1000px;
+}
+
+.hero,
+.cards {
+    margin: 26px 36px;
+}
+
+.hero--img {
+    width: 395.91px;
+    display: flex;
+    margin: 0 auto;
+}
+
+.hero--title {
+    font-size: 36px;
+    font-weight: 600;
+    color: #000000;
+    /* line-height: 110%; */
+}
+
+.hero--text {
+    width: 60%;
+    min-width: 320px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #222222;
+    position: relative;
+}
+
+.card--situation {
+    position: absolute;
+    background: #FFFFFF;
+    text-transform: uppercase;
+    font-size: 10.24px;
+    text-align: center;
+    padding: 5px 6px;
+    border-radius: 2px;
+    left: 1rem;
+}
+
+.card--stars {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.card--stars .no_stars {
+    color: #918E9B;
+}
+
+.card--stars img {
+    width: 14px;
+}
+
+.card--price span {
+    font-weight: 600;
+}

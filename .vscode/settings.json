@@ -1,0 +1,9 @@
+{
+    "emmet.preferences": {
+    
+    },
+    "editor.wordWrap": "off",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+     },
+}
