@@ -1,70 +1,123 @@
-# Getting Started with Create React App
+# Scrimba React AirBnB Project {AirBnB Experience}
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This is a solution to the [Scrimba React Course on Scrimba](https://scrimba.com/learn/learnreact/react-section-2-solo-project).
+The course is offered for FREE on Scrimba by Bob Ziroll [Learn React](https://scrimba.com/learn/learnreact)(An amazing tutor -- really understood his course)
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
+-[Acknowledgments](#acknowledgments)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### The challenge
 
-### `npm test`
+Recreate the AirBnb Experience using React
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Requirements : -
 
-### `npm run build`
+- Build from Scratch!
+- Add data dynamically from `data.js` by `mappping` using `props`
+- Separate components for :- - Navbar (AirBnB Logo) - Hero(Hero Image) - Card (where the fun stuff's at ...all the details)
+- Enjoy the build
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Screenshot
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Screenshot of Mobile preview of the AirBnb Experience
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![](./src/images/mobile.jpg)
 
-### `npm run eject`
+Screenshot of Tablet mode view of the AirBnb Experience
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![](./src/images/tablet.jpg)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Screenshot of Laptop and Larger screens preview of the AirBnb Experience
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![](./src/images/laptop.jpg)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### Links
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Solution URL: [GitHub Link](https://github.com/issagoodlifeInc/airbnb.git)
+- Live Site URL: [Netlify Deploy](https://AirBnBleskim.netlify.app/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## My process
 
-### Code Splitting
+First worked on the NavBar and Hero sections as per the [Figma model](https://www.figma.com/file/d00Reyp7biZMav40GhWxVT/Airbnb-Experiences-(Copy)?node-id=2%3A2) shared on Scrimba
+Then worked on the `Card` part first writing out the info before mapping it out using props with the data from the `data.js` file
+Added in logics such as the situation of the Card using properties such as openCount from the file to cater for when an item is sold out
+Styled the work making it more responsive
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Built with
 
-### Analyzing the Bundle Size
+- React
+- JSX syntax
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### What I learned
 
-### Making a Progressive Web App
+- Using `props` and `mapping` in React
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```js
+const myData = data.map(data => {
+      return(
+          <Card
+          key={data.id}
+          data={data}
+          />
+      )
+  })
+```
 
-### Advanced Configuration
+```js
+return(
+        <div className="card">
+            <div className="card--situation">
+          {situationText && <h5 className="card--situation_text">{situationText}</h5>}
+            </div>
+            <img src= {src} className="card-img" alt={props.data.coverImg.slice(0, -4)}/>
+            <p className="card--stars">
+            <img src={star} alt="star"/>
+            {props.data.stats.rating} <span className='no_stars'>({props.data.stats.reviewCount}) • {props.data.location} </span></p>
+            <p className="card--text">{props.data.title}</p>
+            <p className="card--price"><span>From ${props.data.price}</span> / person</p>
+        </div>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+)
+```
 
-### Deployment
+- Inserting images by requiring the when in the src folder
+Spent a whole load of time working on this finally it worked after snooping on solutions to this in the [#today-I-did](https://discord.com/channels/684009642984341525/919153471691849769/985538609430016000) channel in the Scrimba Discord Community
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```js
+const src = require(`../images/${props.data.coverImg}`);
+```
 
-### `npm run build` fails to minify
+- Using Figma files to code
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- React! React! React!
+
+### Continued development
+
+- Learning more React! (yeah reenacting React problems and tackling them)
+
+- Better turnaround time -- simple stuff but worked on it for a while
+
+- Less Code (code cleanup)
+
+## Author
+
+- Website - [Lesley Kimutai](https://leskim.github.io/myweb/)
+- Frontend Mentor - (https://www.frontendmentor.io/profile/Leskim)

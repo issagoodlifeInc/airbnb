@@ -1,28 +1,31 @@
-import swimmer from '../images/swimmer.png';
 import star from '../images/star.png';
 
-export default function Card() {
+export default function Card(props) {
+
+  let situationText
+  if (props.data.openSpots === 0){
+    situationText = "Sold out"
+  }else if(props.data.location === "Online"){
+    situationText= "Online"
+  }
+
+  const src = require(`../images/${props.data.coverImg}`);
     return(
-        <section className="cards">
             <div className="card">
-            <h5 className='card--situation'>Sold Out</h5>
-            <img src={swimmer} alt="Swimmer"/>
-            <p className="card--stars"> 
-            <img src={star} alt="star"/>
-            5.0 <span className='no_stars'>(6) • USA </span></p>
-            <p className="card--text">Life lessons with Katie Zaferes</p>
-            <p className="card--price"><span>From $136</span> / person</p>
+                <div className="card--situation">
+              {situationText && <h5 className="card--situation_text">{situationText}</h5>}
+                </div>
+                <img src= {src} className="card-img" alt={props.data.coverImg.slice(0, -4)}/>
+                <p className="card--stars">
+                <img src={star} alt="star"/>
+                {props.data.stats.rating} <span className='no_stars'>({props.data.stats.reviewCount}) • {props.data.location} </span></p>
+                <p className="card--text">{props.data.title}</p>
+                <p className="card--price"><span>From ${props.data.price}</span> / person</p>
             </div>
 
-            <div className="card">
-            <img src={swimmer} alt="Swimmer"/>
-            <p className="card--stars">
-            <img src={star} alt="star" />
-            5.0 <span className='no_stars' >(6) • USA </span></p>
-            <p className="card--text">Life lessons with Katie Zaferes</p>
-            <p className="card--price"><span>From $136</span> / person</p>
-            </div>
-        </section>
-            
     )
 }
+
+
+
+// {props.data.situation && <h5 className='card--situation'>{props.data.situation}</h5>}
